@@ -23,3 +23,62 @@ int main()
     
 }
 */
+
+/*
+#include <stdio.h>
+
+void reverse(int *a, int n){
+    if(n<=0){return;}
+    else{
+        int temp;
+        int i= 0;
+        temp = a[i];
+        a[i]= a[n-1];
+        a[n -1] = temp;
+        reverse(&a[1], n-2);
+    }
+    
+    /*
+           int temp;
+        int i= 0;
+        temp = a[i];
+        a[i]= a[size-1];
+        a[size -1] = temp;
+        reverse_arr(a, size-1);
+        */
+}
+
+
+int main (){
+    
+    //Werte und arrays initialisieren
+    int n = 5;
+    int a[n];
+    int b[n];
+    
+    for(int i=0; i<n; i++){
+        a[i]=b[i]=i+1;
+    }
+    
+    //a reverse iterativ
+
+    for(int i=0; i<n/2; i++){
+        int c=a[i];
+        a[i] = a[n-1-i];
+        a[n-1-i] = c;
+    }
+    
+    //b reverse rekursiv
+    reverse(b,n);
+    
+    
+    //Werte und arrays ausgeben
+    for(int i=0; i<n; i++){
+        printf("%i",a[i]);
+    }
+    printf("\n");
+    for(int i=0; i<n; i++){
+        printf("%i",b[i]);
+    }
+}
+*/
