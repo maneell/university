@@ -1,0 +1,63 @@
+#include <stdio.h>
+
+void shift(char* s, int n, int k) {
+    char help[n];
+    for(int i=0; i<n; i++){
+        help[i] = s[i];
+    }
+    
+    for(int i=0; i<n; i++){
+        
+        int j;
+        if(i+k > n-1){
+            j=i-n+k;
+        } else{
+            j=i+k;
+        }
+        
+        s[j]=help[i];
+    }
+}
+
+
+bool is_palindrom(char* s, int n) {
+ bool j = 1;
+ for(int i=0; i<n/2; i++){
+     if(s[i]!=s[n-1-i]){
+         j = 0;
+     }
+ }
+ return j;
+}
+
+
+void reverse(char* l, char* r) {
+    for(int i=0; i<(&l+&r)/2;i++){
+        int c = *(&l+i);
+        *(&l+i)=*(&r-i);
+        *(&r-i) = c;
+    }
+    
+}
+
+
+int main() {
+    
+char s[] = "hello";
+shift(s, 5, 2);
+printf("%s\n", s); // Ausgabe "lohel"
+
+
+char p1[] = "palindrom";
+char p2[] = "tenet";
+printf("%d\n", is_palindrom(p1, 9)); // Ausgabe "0"
+printf("%d\n", is_palindrom(p2, 5)); // Ausgabe "1"
+
+
+char h[] = "Hello World!";
+char* l = h + 2;
+char* r = h + 8;
+reverse(l, r);
+printf("%s\n", h); // Ausgabe "HeroW ollld!"
+return 0;
+}
