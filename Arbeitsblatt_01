@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+//Aufgabe 1a
+void aufgabe1a(int n){
+    static int i=1;
+    if(n<1) return;
+    else{
+        printf("%i",i);
+        i++;
+        aufgabe1a(n-1);
+    }
+}
+
+void aufgabe1b(int n){
+    if(n<1) return;
+    else{
+        printf("%i",n);
+        aufgabe1b(n-1);
+    }
+}
+
+void aufgabe2_0(float z, float k){
+    float a=(z+1)/2;
+    float b= 0.5*(a+z/a);
+    while(a-b>k){
+        a=b;
+        b=0.5*(a+z/a);
+        //printf("\n %f",a-b);
+    }
+    printf("%.5f",b);
+    return;
+}
+
+void aufgabe2_1(float z,float k){
+    float a=z;
+    static float i=0;
+    if(i==0){
+        a=(z+1)/2;
+        i=z;
+    }
+    float b=0.5*(a+i/a);
+    if(a-b<k) {
+        printf("%.5f",b);
+        return;
+    }
+    else{
+        aufgabe2_1(b,k);
+    }
+}
+int main()
+{   
+    //aufgabe1a(4);
+    //aufgabe1b(4);
+    //aufgabe2_0(19999,0.0001);
+    //aufgabe2_1(2,0.0001);
+}
