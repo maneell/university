@@ -1,0 +1,31 @@
+#include "labyrinth.h"
+
+void findeAusgang() {
+	int zaehler = 0;
+	int ausgang_erreicht = 0;
+	char ergebnis;
+	
+	while(ausgang_erreicht == 0){
+		int wand_erreicht=0;
+		while(wand_erreicht==0){
+			ergebnis = geheGeradeaus();
+				if(ergebnis == 'A') return;
+				if(ergebnis == 'X') wand_erreicht = 1;
+		}
+		dreheRechts();
+		zaehler++;
+		while(zaehler !=0){
+			ergebnis = geheGeradeaus();
+				if(ergebnis=='X'){
+					dreheRechts();
+					zaehler++;
+				}
+			if(ergebnis=='A') return;
+			if(ergebnis=='_'){
+				dreheLinks();
+				zaehler--;
+			}
+		}
+		
+	}
+}
