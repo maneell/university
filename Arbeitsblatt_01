@@ -40,7 +40,7 @@ void aufgabe2_1(float z,float k){
     }
     float b=0.5*(a+i/a);
     if(a-b<k) {
-        printf("%.5f",b);
+        printf("\n%.5f",b);
         return;
     }
     else{
@@ -48,18 +48,16 @@ void aufgabe2_1(float z,float k){
     }
 }
 
-int aufgabe3(int *a, int n){
+void aufgabe3(int *a, int n){
     int max=a[0];
     for(int i=0; i<n; i++){
         int b=0;
-        int j=0;
-        for(j=i; j<n; j++){
+        for(int j=i; j<n; j++){
             b+=a[j];
-            if(b>max) {max=b;}
+            if(b>max) max=b;
         }
     }
     printf("%i",max);
-    return max;
 }
 
 int fak(int n){
@@ -70,20 +68,37 @@ int fak(int n){
     return k;
 }
 
+int fak1(int f){
+    if(f<=0) return(1);
+    return (fak(f-1)*f);
+}
+
 void aufgabe4_0(int n, int k){
     int b=fak(n)/(fak(k)*fak(n-k));
     printf("%i",b);
+}
+
+void aufgabe4_1(int n, int k){
+    int b=fak1(n)/(fak1(k)*fak1(n-k));
+    printf("\n%i",b);
+}
+
+int aufgabe4_2(int n, int k){
+    if(k==0 || k==n) return 1;
+    else return aufgabe4_2(n-1,k-1)+aufgabe4_2(n-1,k);
 }
 
 int main()
 {   
     //aufgabe1a(4);
     //aufgabe1b(4);
-    //aufgabe2_0(19999,0.0001);
+    //aufgabe2_0(2,0.0001);
     //aufgabe2_1(2,0.0001);
     int a[4]={-1,-1,1,3};
     //aufgabe3(a,4);
-    //aufgabe4_0(3,0);
+    //aufgabe4_0(3,2);
+    //aufgabe4_1(3,0);
+    //printf("\n%i",aufgabe4_2(3,0));
 
     
 }
