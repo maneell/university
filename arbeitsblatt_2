@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+void aufgabe1a(float n){
+    float c=1;
+    for(float k=1; k<n+1; k++){
+        c *= (4*k-2)/(k+1);
+        //printf("\n%.5f",(4*k-2)/(k+1));
+    }
+    printf("\n%0.5f",c);
+}
+
+void aufgabe1a1(int n, float c){
+    if(n<1){
+        printf("\n%.3f",c);
+        return;
+    }
+    else aufgabe1a1(n-1, c*(4*n-2)/(n+1));
+}
+
+void a2(int n, int k){
+    static int* lookup = new int[1000*1000];
+    if(lookup[n] > 0) return lookuo[n];
+    
+} 
+
+int main(){
+    //aufgabe1a(4);
+    //aufgabe1a1(4, 1);
+}
