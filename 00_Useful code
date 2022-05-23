@@ -1,0 +1,7 @@
+#include <stdio.h>
+
+int main(){
+
+  //Ein zwei-dimensionales Array erstellen und mit Nullen befüllen
+  long long lookup[N][N] = {0};
+}
